@@ -1403,7 +1403,7 @@ function load_ext_file($path) {
     if($configs = C('LOAD_EXT_CONFIG')) {
         if(is_string($configs)) $configs =  explode(',',$configs);
         foreach ($configs as $key=>$config){
-            $file   = is_file($config)? $config : $path.'Conf/'.$config.CONF_EXT;
+            $file   = is_file($config)? $config : (is_file($path.$config.CONF_EXT)?($path.$config.CONF_EXT):($path.'Conf/'.$config.CONF_EXT));
             if(is_file($file)) {
                 is_numeric($key)?C(load_config($file)):C($key,load_config($file));
             }
