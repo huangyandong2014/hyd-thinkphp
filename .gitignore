@@ -3,3 +3,4 @@
 .buildpath
 .project
 .pydevproject
+.DS_Store
